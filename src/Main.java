@@ -1,10 +1,10 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        /*System.out.println("Hello World!");*/
         System.out.println("\n**************************************\n");
         System.out.println("\tWelcome to TheDesk \n");
         System.out.println("**************************************");
@@ -90,11 +90,21 @@ public class Main {
             }
     private static void searchExpenses(ArrayList<Integer> arrayList) {
         int leng = arrayList.size();
+        Scanner sc = new Scanner(System.in);
         System.out.println("Enter the expense you need to search:\t");
-        Scanner sc = new Scanner();
+        int expenditure = sc.nextInt();
+        sc.nextLine();
+        if(arrayList.contains(expenditure)) {
+        	System.out.println(expenditure + " is included in your expenses! \n");
+        } else {
+        	System.out.println("Uh oh... " + expenditure + " is not found in your expenses! \n");
+        }
+        
+
     }
     private static void sortExpenses(ArrayList<Integer> arrayList) {
         int arrlength =  arrayList.size();
-       //Complete the method. The expenses should be sorted in ascending order.
+        Collections.sort(arrayList);
+        System.out.println("Sorted Expenses: \n" + arrayList.toString());
     }
 }
